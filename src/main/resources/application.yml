@@ -1,0 +1,26 @@
+server:
+  port: 8001
+  servlet:
+    context-path: /A33
+
+spring:
+  datasource:
+    username: root
+    password: 2100301322
+    url: jdbc:mysql://10.60.66.183:3306/A33?useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    port: 6379
+    password: 123456
+    host: 10.60.66.183
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging:
+  level:
+    org.springframework.boot.autoconfigure: error
+
+mybatis-plus:
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.xiaomaotongzhi.springsecurity.entity

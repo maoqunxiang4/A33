@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fuchuang.A33.mapper.AuthenticationMapper">
+    <select id="getAuthenticationsByPosition" parameterType="string" resultType="com.fuchuang.A33.entity.Authentication">
+        select a.ID , authentication
+        from t_employee e
+        left join t_employee_position ep on e.position = ep.employee_position
+        left join t_position p on ep.position_ID = p.ID
+        left join t_position_authentication pa on pa.position_ID = p.ID
+        left join t_authentication a on a.ID = pa.authentication_ID
+        where e.position = #{position} and e.ID = #{ID}
+  </select>
+</mapper>
